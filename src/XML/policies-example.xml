@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<privacy_policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="schema.xsd">
+	<publisher>
+		<email>dejanbesic@yahoo.com</email>
+		<name>Dejan Besic</name>
+	</publisher>
+	<policies>
+		<cookies>
+			<session>
+				<name>Session</name>
+				<expiration>1234567890</expiration>
+			</session>
+			<persistent>
+				<name>Persistent</name>
+				<expiration>1234567890</expiration>
+			</persistent>
+			<third_party>
+				<name>Third-party</name>
+				<expiration>1234567890</expiration>
+			</third_party>
+		</cookies>
+	</policies>
+</privacy_policy>

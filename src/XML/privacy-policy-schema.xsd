@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="privacy_policy">
+		<xs:complexType>
+			<xs:squence>
+				<xs:element name="publisher">		
+					<xs:complexType>
+						<xs:element name="email" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="policies">		
+					<xs:complexType name="policy">
+						<xs:element name="name" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+			</xs:squence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
