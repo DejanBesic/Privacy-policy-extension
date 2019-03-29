@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="privacy_policy">
+	  <xs:complexType>
+		<xs:sequence>
+		 <xs:element name="publisher">
+			<xs:complexType>
+				<xs:all>
+					<xs:element name="email" type="xs:string"/>
+					<xs:element name="name" type="xs:string" />
+					<xs:element name="contact" type="xs:string" />
+					<xs:element name="creation_date" type="xs:date" />
+				</xs:all>
+			</xs:complexType>
+		 </xs:element>
+		 <xs:element name="policies" >
+			<xs:complexType>
+				<xs:all>
+					<xs:element name="cookies" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="session" minOccurs="0">
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="expiration" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="persistent" minOccurs="0">
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="expiration" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="third_party" minOccurs="0">
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="expiration" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="personal_data" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="email" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="address" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="credentials" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="contact_info" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="payment_info" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="location" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="gps" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="ip" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="sensor_data" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="nearby_info" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="camera" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="name" type="xs:string" minOccurs="0" />
+								<xs:element name="description" type="xs:string" minOccurs="0" />
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="microphone" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="name" type="xs:string" minOccurs="0" />
+								<xs:element name="description" type="xs:string" minOccurs="0" />
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ssl" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="track_activity" minOccurs="0">
+						<xs:complexType>
+							<xs:all>
+								<xs:element name="searching_terms" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="content" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="purchase_activity" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="people" minOccurs="0" >
+									<xs:complexType>
+										<xs:all>
+											<xs:element name="name" type="xs:string" minOccurs="0" />
+											<xs:element name="description" type="xs:string" minOccurs="0" />
+										 </xs:all>
+									</xs:complexType>
+								</xs:element>
+							</xs:all>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="javascript" minOccurs="0" type="xs:boolean" />
+					<xs:element name="plug_ins" minOccurs="0" type="xs:boolean" />
+					<xs:element name="downloads" minOccurs="0" type="xs:boolean" />
+				</xs:all>
+			</xs:complexType>
+		 </xs:element>
+		</xs:sequence>
+	  </xs:complexType>
+	</xs:element>
+</xs:schema>
