@@ -13,6 +13,8 @@
     position: relative;
     background: #ffffff;
     border: 1px solid #eeeeee;
+    border-left: 0;
+    border-right: 0;
   }
   
   .toggleContainer .toggleOption {
@@ -31,6 +33,10 @@
   .toggleContainer .toggleOption.selected {
     color: #ffffff;
     cursor: initial;
+  }
+
+  .myClass {
+    background: #939493 !important;
   }
   
   .toggleContainer .toggle {

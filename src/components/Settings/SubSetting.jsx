@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import MultiToggle from 'react-multi-toggle';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './styles.css';
+import { onUpdateSubSettings } from '../../store/actions/settings';
 
 const Container = styled.div`
   width: 100%;
@@ -25,27 +27,6 @@ const Label = styled.label`
   padding-top: 20px;
 `;
 
-const CentralWrapper = styled.div`
-  width: 33%;
-  margin: auto;
-  padding-bottom: 50px;
-  position: relative;
-  margin-top: 10px;
-`;
-
-const MoreButton = styled.a`
-  padding: 8px;
-  border: 1px solid #eeeeee;
-  margin: auto;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  position: absolute;
-  cursor: pointer;
-  background-color: #e8e8e8;
-  text-align: center;
-`;
-
 const StyledMultiToggle = styled(MultiToggle)`
   border-right: 0px;
   border-left: 0px;
@@ -66,53 +47,57 @@ const groupOptions = [
   },
 ];
 
-
-class Setting extends Component {
+class SubSetting extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      groupSize: 2
+      refresh: false,
     };
   }
 
-  onGroupSizeSelect = value => this.setState({ groupSize: value });
-
-  viewMorePressed = () => {
-    
+  onGroupSizeSelect = value => {
+    this.props.onUpdateSubSettings(this.props.parent, this.props.option, value);
+    this.setState({ refresh: !this.state.refresh });
   }
 
   render() {
-    const { groupSize } = this.state;
-    const { LabelText, Name } = this.props;
+  //   const { groupSize, viewMoreToggled } = this.state;
+    const { LabelText, Name, settings, parent, option } = this.props;
+
     return (
       <Container>
-        <CentralWrapper className="card card-3">
           <StyledMultiToggle
             options={groupOptions}
-            selectedOption={groupSize}
+            selectedOption={settings[parent].subSettings[option]}
             onSelectOption={this.onGroupSizeSelect}
             label={Name}
           />
-        { LabelText ? 
-          <div>
-            <Label>{LabelText}</Label>
-            <Input />
-          </div>
-          : null
-        }
-        <MoreButton onClick={() => this.viewMorePressed()}>View More</MoreButton>
-        </CentralWrapper>
-      </Container>
+          { LabelText ? 
+            <div>
+              <Label>{LabelText}</Label>
+              <Input />
+            </div>
+            : null
+          }
+    </Container>
     );
   }
 }
-
-Setting.propTypes = {
-  LabelText: PropTypes.string,
+  
+SubSetting.propTypes = {
+  parent: PropTypes.string,
+  option: PropTypes.string,
   Name: PropTypes.string,
+  LabelText: PropTypes.string,
 };
+  
+    
+const mapDispatch = dispatch => ({
+  onUpdateSubSettings: (parent, option, value) => dispatch(onUpdateSubSettings(parent, option, value)),
+});
 
-  
-export default Setting;
-  
+const mapState = (state) => ({
+  settings: state.settings.settings,
+});
+
+export default connect(mapState, mapDispatch)(SubSetting);

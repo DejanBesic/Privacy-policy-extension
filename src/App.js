@@ -1,58 +1,48 @@
 import React, { Component } from 'react';
 import './App.css';
-import Setting from './components/Setting';
-import { policies } from './XML/policies-string';
+import { Provider } from 'react-redux'
+import { store, persistor} from './store/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import Settings from './components/Settings';
+import Validation from './components/Validation/Validation';
+import MultiToggle from 'react-multi-toggle';
 
-
-var XMLParser = require('react-xml-parser');
+let editedOptions = [
+  {
+    displayName: 'Validation',
+    value: 1,
+  },
+  {
+    displayName: 'Settings',
+    value: 2
+  },
+];
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor(){
+    super();
     this.state = {
-      xml: null
+      selected: 1,
     };
   }
-  componentDidMount() {
-    const xml = new XMLParser().parseFromString(policies);
-    this.setState({ xml: xml });
-  }
+  
   render() {
-    console.log(this.state.xml);
     return (
-      <div>
-        <Setting
-          LabelText={"Expiration"}
-          Name={"Cookies"}
-        />
-        <Setting
-          Name={"Personal data"}
-        />
-        <Setting
-          Name={"Location"}
-        />
-        <Setting 
-          Name={"Camera"}
-        />
-        <Setting 
-          Name={"Microphone"}
-        />
-        <Setting 
-          Name={"Tracking activity"}
-        />
-        <Setting 
-          Name={"Downloads"}
-        />
-        <Setting 
-          Name={"SSL"}
-        />
-        <Setting 
-          Name={"Javascript"}
-        />
-        <Setting 
-          Name={"Plug-ins"}
-        />
-      </div>
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={null} >
+          <div style={{ width: 500 }}>
+            <MultiToggle
+              options={editedOptions}
+              selectedOption={this.state.selected}
+              onSelectOption={(value) => this.setState({ selected: value })}
+            />
+            {this.state.selected === 1 ? 
+              <Validation />
+            : <Settings />
+            }
+          </div>
+        </PersistGate>
+      </Provider>
     );
   }
 }
