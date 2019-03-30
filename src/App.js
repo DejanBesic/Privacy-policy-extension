@@ -1,25 +1,57 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Setting from './components/Setting';
+import { policies } from './XML/policies-string';
+
+
+var XMLParser = require('react-xml-parser');
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      xml: null
+    };
+  }
+  componentDidMount() {
+    const xml = new XMLParser().parseFromString(policies);
+    this.setState({ xml: xml });
+  }
   render() {
+    console.log(this.state.xml);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Setting
+          LabelText={"Expiration"}
+          Name={"Cookies"}
+        />
+        <Setting
+          Name={"Personal data"}
+        />
+        <Setting
+          Name={"Location"}
+        />
+        <Setting 
+          Name={"Camera"}
+        />
+        <Setting 
+          Name={"Microphone"}
+        />
+        <Setting 
+          Name={"Tracking activity"}
+        />
+        <Setting 
+          Name={"Downloads"}
+        />
+        <Setting 
+          Name={"SSL"}
+        />
+        <Setting 
+          Name={"Javascript"}
+        />
+        <Setting 
+          Name={"Plug-ins"}
+        />
       </div>
     );
   }
