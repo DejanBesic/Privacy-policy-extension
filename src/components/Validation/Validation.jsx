@@ -6,6 +6,7 @@ import { policies } from '../../XML/policies-string';
 import { onXmlLoad, onValidate } from '../../store/actions/xml';
 import { onUpdateSettings } from '../../store/actions/settings';
 import { onUpdateSubSettings } from '../../store/actions/settings';
+import axios from 'axios';
 
 const Container = styled.div``;
 
@@ -45,6 +46,10 @@ var XMLParser = require('react-xml-parser');
 
 class Validation extends Component {
   componentDidMount() {
+    debugger
+    axios.get('http://localhost:8081/dmschema/policies-example.xml')
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
     const xml = new XMLParser().parseFromString(policies);
     this.props.onXmlLoad(xml);
     this.props.validatePolicies();
