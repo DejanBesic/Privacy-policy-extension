@@ -6,7 +6,7 @@ export const initialState = {
    settings: {
     cookies: {
             value: 1,
-            selected: false,
+            selected: true,
             subSettings: {
                 session: 1,
                 persistent: 1,
@@ -49,7 +49,7 @@ export const initialState = {
             selected: true,
             subSettings: {}
         },
-        tracking_activity: {
+        track_activity: {
             value: 1,
             selected: true,
             subSettings: {

@@ -1,9 +1,11 @@
 import {
-    XML_LOAD
+    XML_LOAD,
+    VALIDATED
 } from '../actions/types';
 
 export const initialState = {
    xml: {},
+   validated: {},
 };
 
 export default function(state = initialState, action) {
@@ -13,6 +15,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 xml: action.payload,
+            };
+
+        case VALIDATED:
+            return {
+                ...state,
+                validated: action.payload
             };
 
         default: 

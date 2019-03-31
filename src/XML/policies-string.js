@@ -9,6 +9,8 @@ export const policies = `<?xml version="1.0"?>
 	</publisher>
 	<policies>
 		<cookies>
+			<name>Cookies</name>
+			<description>Cookies description</description>
 			<session>
 				<name>Session</name>
 				<expiration>1234567890</expiration>
@@ -26,6 +28,8 @@ export const policies = `<?xml version="1.0"?>
 			</third_party>
 		</cookies>
 		<personal_data>
+			<name>Personal data</name>
+			<description>Perosnal data description</description>
 			<email>
 				<name>Email</name>
 				<description>We are using your email for ...</description>
@@ -48,6 +52,8 @@ export const policies = `<?xml version="1.0"?>
 			</payment_info>
 		</personal_data>
 		<location>
+			<name>Location</name>
+			<description>Location description</description>
 			<gps>
 				<name>GPS</name>
 				<description>We would like to use your GPS for...</description>
@@ -65,7 +71,10 @@ export const policies = `<?xml version="1.0"?>
 				<description>If you use Google’s Location services on Android, we can improve the performance of apps that rely on your location, like Google Maps. If you use Google’s Location services, your device sends information to Google about its location, sensors (like accelerometer), and nearby cell towers and Wi-Fi access points (like MAC address and signal strength). All these things help to determine your location. You can use your device settings to enable Google Location services.</description>
 			</nearby_info>
 		</location>
-		<ssl>true</ssl>
+		<ssl>
+			<name>SSL</name>
+			<description>Some SSL description</description>
+		</ssl>
 		<camera>
 			<name>Camera usage</name>
 			<description>Camera is required for...</description>
@@ -75,6 +84,8 @@ export const policies = `<?xml version="1.0"?>
 			<description>Microphone is required for...</description>
 		</microphone>
 		<track_activity>
+			<name>Tracking activity</name>
+			<description>Some tracking activity description</description>
 			<searching_terms>
 				<name>Terms you search for</name>
 				<description>Tearms you search for improves...</description>
@@ -91,8 +102,17 @@ export const policies = `<?xml version="1.0"?>
 				<name>People with whom you communicate or share content</name>
 			</people>
 		</track_activity>
-		<javascript>true</javascript>
-		<plug_ins>false</plug_ins>
-		<downloads>false</downloads>
+		<javascript>
+			<name>Javascript</name>
+			<description>Some javascript description</description>
+		</javascript>
+		<plug_ins>
+			<name>Plug-ins</name>
+			<description>Some plug-in description</description>
+		</plug_ins>
+		<downloads>
+			<name>Downloads</name>
+			<description>Some downloads description</description>
+		</downloads>
 	</policies>
 </privacy_policy>`;

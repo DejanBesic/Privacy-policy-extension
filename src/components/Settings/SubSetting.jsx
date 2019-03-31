@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Input = styled.input`
   width: 100%;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 10px;
   border: 1px solid #eeeeee;
   padding-top: 5px;
@@ -23,7 +23,7 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  font-size: 16px;
+  font-size: 14px;
   padding-top: 20px;
 `;
 

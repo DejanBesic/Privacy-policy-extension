@@ -56,7 +56,7 @@ class Settings extends Component {
                 <SubSetting parent={"tracking_activity"} option={"purchase_activity"} Name={"Purchasing history"}/>
                 <SubSetting parent={"tracking_activity"} option={"people"} Name={"People"}/>
             </div>}
-            option={"tracking_activity"}
+            option={"track_activity"}
         />
         <Setting 
             Name={"Downloads"}
