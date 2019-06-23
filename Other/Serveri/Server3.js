@@ -1,4 +1,19 @@
-<?xml version="1.0"?>
+var express = require('express');
+var app = express();
+var cors = require('cors');
+
+app.use(cors());
+
+app.get('/dmpolicies/policy.xml', function (req, res) {
+    res.send(privacyExample);
+});
+
+app.listen(5003, function () {
+    console.log('Example app listening on port 5003.');
+});
+
+
+var privacyExample = `<?xml version="1.0"?>
 <privacy_policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="schema.xsd">
 	<publisher>
@@ -83,25 +98,6 @@
 			<name>Microphone usage</name>
 			<description>Microphone is required for...</description>
 		</microphone>
-		<track_activity>
-			<name>Tracking activity</name>
-			<description>Some tracking activity description</description>
-			<searching_terms>
-				<name>Terms you search for</name>
-				<description>Tearms you search for improves...</description>
-			</searching_terms>
-			<content>
-				<name>Videos, interactions with ads, audio</name>
-				<description>We are collecting data about content you search for to improve recommendations for you.</description>
-			</content>
-			<purchase_activity>
-				<name>Purchasing history</name>
-				<description>We are collecting data about purchasing history to improve recommendations for you.</description>
-			</purchase_activity>
-			<people>
-				<name>People with whom you communicate or share content</name>
-			</people>
-		</track_activity>
 		<javascript>
 			<name>Javascript</name>
 			<description>Some javascript description</description>
@@ -115,4 +111,4 @@
 			<description>Some downloads description</description>
 		</downloads>
 	</policies>
-</privacy_policy>
+</privacy_policy>`;

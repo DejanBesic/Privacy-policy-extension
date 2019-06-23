@@ -1,12 +1,11 @@
+/*global chrome*/
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { policies } from '../../XML/policies-string';
 import { onXmlLoad, onValidate } from '../../store/actions/xml';
 import { onUpdateSettings } from '../../store/actions/settings';
 import { onUpdateSubSettings } from '../../store/actions/settings';
-import axios from 'axios';
 
 const Container = styled.div``;
 
@@ -39,20 +38,35 @@ const StyledButton = styled.a`
 const ButtonsWrapper = styled.span`
   float: right;
 `;
-
+function getUrl(fetchPolicies) {
+  chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
+    fetchPolicies(tabs[0].url)
+  });
+}
 
 
 var XMLParser = require('react-xml-parser');
 
 class Validation extends Component {
-  componentDidMount() {
-    debugger
-    axios.get('http://localhost:8081/dmschema/policies-example.xml')
-    .then(response => console.log(response))
+  componentWillMount() {
+    getUrl(this.fetchPolicies);
+  }
+
+  fetchPolicies = (url) => {
+    var hostname = (new URL(url)).hostname;
+    var port = (new URL(url)).port;
+    fetch(`http://${hostname}:${port}/dmpolicies/policy.xml`,{
+      headers: {
+        'Content-Type': 'text/xml'
+      }
+    })
+    .then(response => response.text())
+    .then(data => {
+      const xml = new XMLParser().parseFromString(data);
+      this.props.onXmlLoad(xml);
+      this.props.validatePolicies();
+    })
     .catch(error => console.log(error));
-    const xml = new XMLParser().parseFromString(policies);
-    this.props.onXmlLoad(xml);
-    this.props.validatePolicies();
   }
    
   findKeys = (obj) => {
@@ -66,7 +80,7 @@ class Validation extends Component {
   render() {
       const { xml } = this.props;
       const validated = xml.validated;
-      console.log(validated);
+      if (!validated || validated.html) return null;
       if (!Object.keys(validated).length) return null;
       const keyList = this.findKeys(validated.policies);
       return(

@@ -25,7 +25,7 @@ class App extends Component {
       selected: 1,
     };
   }
-  
+
   render() {
     return (
       <Provider store={store}>

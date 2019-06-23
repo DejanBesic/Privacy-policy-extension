@@ -2,37 +2,32 @@
 <privacy_policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="schema.xsd">
 	<publisher>
-		<email>dejanbesic@yahoo.com</email>
-		<name>Dejan Besic</name>
+		<email>prodavnica@gmail.com</email>
+		<name>Prodavnica</name>
 		<contact>1234567890</contact>
 		<creation_date>2019-03-22</creation_date>
 	</publisher>
 	<policies>
 		<cookies>
-			<name>Cookies</name>
-			<description>Cookies description</description>
+			<name>Kolačići</name>
+			<description>Ovaj sajt će koristiti kolačiće za...</description>
 			<session>
-				<name>Session</name>
+				<name>Sesija</name>
 				<expiration>1234567890</expiration>
-				<description>Session description</description>
+				<description>Ovaj sajt će koristiti kolačiće sesije za...</description>
 			</session>
-			<persistent>
-				<name>Persistent</name>
-				<expiration>1234567890</expiration>
-				<description>Persistent description</description>
-			</persistent>
 			<third_party>
-				<name>Third-party</name>
+				<name>Treća lica</name>
 				<expiration>1234567890</expiration>
-				<description>Third-party description</description>
+				<description>Ovaj sajt će koristi kolačiće za davanje informacija trećem licu za...</description>
 			</third_party>
 		</cookies>
 		<personal_data>
-			<name>Personal data</name>
-			<description>Perosnal data description</description>
+			<name>Lični podaci</name>
+			<description>Lični podaci će biti korišćeni samo u svrhe poboljšanja sajta.</description>
 			<email>
 				<name>Email</name>
-				<description>We are using your email for ...</description>
+				<description>Email će se koristiti samo za unapređivanje sajta.</description>
 			</email>
 			<address>
 				<name>Address</name>

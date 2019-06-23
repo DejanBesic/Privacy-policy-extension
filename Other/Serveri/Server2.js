@@ -1,4 +1,19 @@
-<?xml version="1.0"?>
+var express = require('express');
+var app = express();
+var cors = require('cors');
+
+app.use(cors());
+
+app.get('/dmpolicies/policy.xml', function (req, res) {
+    res.send(privacyExample);
+});
+
+app.listen(5002, function () {
+    console.log('Example app listening on port 5002.');
+});
+
+
+var privacyExample = `<?xml version="1.0"?>
 <privacy_policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="schema.xsd">
 	<publisher>
@@ -51,26 +66,6 @@
 				<description>This site will require payment info while purchasing items.</description>
 			</payment_info>
 		</personal_data>
-		<location>
-			<name>Location</name>
-			<description>Location description</description>
-			<gps>
-				<name>GPS</name>
-				<description>We would like to use your GPS for...</description>
-			</gps>
-			<ip>
-				<name>IP address</name>
-				<description>We would like to use your IP address.</description>
-			</ip>
-			<sensor_data>
-				<name>Sensor data of device</name>
-				<description>Your device may have sensors that can be used to better understand your location and movement. For example, an accelerometer can be used to determine your speed and a gyroscope to figure out your direction of travel.</description>
-			</sensor_data>
-			<nearby_info>
-				<name>Information about things near your device</name>
-				<description>If you use Google’s Location services on Android, we can improve the performance of apps that rely on your location, like Google Maps. If you use Google’s Location services, your device sends information to Google about its location, sensors (like accelerometer), and nearby cell towers and Wi-Fi access points (like MAC address and signal strength). All these things help to determine your location. You can use your device settings to enable Google Location services.</description>
-			</nearby_info>
-		</location>
 		<ssl>
 			<name>SSL</name>
 			<description>Some SSL description</description>
@@ -115,4 +110,4 @@
 			<description>Some downloads description</description>
 		</downloads>
 	</policies>
-</privacy_policy>
+</privacy_policy>`;

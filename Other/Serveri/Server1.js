@@ -1,4 +1,19 @@
-<?xml version="1.0"?>
+var express = require('express');
+var app = express();
+var cors = require('cors');
+
+app.use(cors());
+
+app.get('/dmpolicies/policy.xml', function (req, res) {
+    res.send(privacyExample);
+});
+
+app.listen(5000, function () {
+    console.log('Example app listening on port 5000.');
+});
+
+
+var privacyExample = `<?xml version="1.0"?>
 <privacy_policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="schema.xsd">
 	<publisher>
@@ -8,25 +23,6 @@
 		<creation_date>2019-03-22</creation_date>
 	</publisher>
 	<policies>
-		<cookies>
-			<name>Cookies</name>
-			<description>Cookies description</description>
-			<session>
-				<name>Session</name>
-				<expiration>1234567890</expiration>
-				<description>Session description</description>
-			</session>
-			<persistent>
-				<name>Persistent</name>
-				<expiration>1234567890</expiration>
-				<description>Persistent description</description>
-			</persistent>
-			<third_party>
-				<name>Third-party</name>
-				<expiration>1234567890</expiration>
-				<description>Third-party description</description>
-			</third_party>
-		</cookies>
 		<personal_data>
 			<name>Personal data</name>
 			<description>Perosnal data description</description>
@@ -115,4 +111,4 @@
 			<description>Some downloads description</description>
 		</downloads>
 	</policies>
-</privacy_policy>
+</privacy_policy>`;

@@ -12,5 +12,11 @@
         "css": ["/static/css/app.css", "/static/css/content.css"],
         "js": ["/static/js/0.chunk.js", "/static/js/content.js"]
       }
-  ]
+  ],
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["app/background.js"]
+  }
 }
