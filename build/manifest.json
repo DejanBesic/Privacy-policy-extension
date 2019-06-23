@@ -1,0 +1,22 @@
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "version": "1.0",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "index.html"
+    },
+  "content_scripts" : [
+      {
+        "matches": [ "<all_urls>" ],
+        "css": ["/static/css/app.css", "/static/css/content.css"],
+        "js": ["/static/js/0.chunk.js", "/static/js/content.js"]
+      }
+  ],
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["app/background.js"]
+  }
+}
