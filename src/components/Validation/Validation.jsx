@@ -145,7 +145,6 @@ const mapDispatch = dispatch => ({
   validatePolicies: () => dispatch(onValidate()),
   onUpdateSubSettings: (parent, option, value) => dispatch(onUpdateSubSettings(parent, option, value)),
   onUpdateSettings: (option, value) => dispatch(onUpdateSettings(option, value)),
-  validatePolicies: () => dispatch(onValidate()),
 });
 
 const mapState = (state) => ({
